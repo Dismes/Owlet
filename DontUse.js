@@ -44,6 +44,7 @@ function authorize(credentials, callback) {
       getNewToken(oauth2Client, callback);
     } else {
       oauth2Client.credentials = JSON.parse(token);
+      console.log(oauth2Client)
       callback(oauth2Client);
     }
   });
@@ -60,7 +61,7 @@ function authorize(credentials, callback) {
 function getNewToken(oauth2Client, callback) {
   console.log("testrun2");
   var authUrl = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
+    access_type: 'online',
     scope: SCOPES
   });
   console.log('Authorize this app by visiting this url: ',  authUrl);
