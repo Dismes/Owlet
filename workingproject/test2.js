@@ -31,9 +31,11 @@ function deleteCalendar(idOfCalendar){
   })
 }
 
-deleteCalendar("su6m46d27h2u44ivp4sihj3c80@group.calendar.google.com");
+createCalendar("thisCalnear");
 
+//deleteCalendar("su6m46d27h2u44ivp4sihj3c80@group.calendar.google.com");
 
+//listevents("primary");
 
 //listevents("primary");
 //createCalendar(CalendarCreate); //need to test getting id
@@ -44,7 +46,6 @@ var CalendarCreate = {
 }
 var event = {
   'summary': 'Google I/O 2015',
-  'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
     'dateTime': '2015-05-28T09:00:00-07:00',
