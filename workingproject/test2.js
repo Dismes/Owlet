@@ -1,4 +1,4 @@
-var test = require("./googleauthorize.js");
+var googleAuth = require("./googleauthorize.js");
 var Calendarfunction = require("./CalendarFunctions");
 var TOKEN_PATH = "./calendar-nodejs-quickstart.json";
 
@@ -8,38 +8,39 @@ module.exports = {
 }
 
 function listevents(NameOfCalendar) {
-  test.returnOath(TOKEN_PATH, function (auth) {
+  googleAuth.returnOath(TOKEN_PATH, function (auth) {
     Calendarfunction.listEvents(auth, NameOfCalendar)
   })
 }
 
-function createEventInCalendar(Events) {
-  test.returnOath(TOKEN_PATH, function (auth) {
-    Calendarfunction.createEvent(auth, event);
+function createEventInCalendar(CalendarID, Events) {
+  googleAuth.returnOath(TOKEN_PATH, function (auth) {
+    Calendarfunction.createEvent(auth, CalendarID, event);
   })
 }
 
-function createCalendar(Calendar) {
-  test.returnOath(TOKEN_PATH, function (auth) {
-    Calendarfunction.postCreateCalendar(auth, Calendar);
+function createCalendar(NameOfCalendar) {
+  googleAuth.returnOath(TOKEN_PATH, function (auth) {
+    Calendarfunction.postCreateCalendar(auth, NameOfCalendar);
   })
 }
 
 function deleteCalendar(idOfCalendar){
-  test.returnOath(TOKEN_PATH, function(auth){
+  googleAuth.returnOath(TOKEN_PATH, function(auth){
     Calendarfunction.deleteCalendar(auth, idOfCalendar);
   })
 }
 
-createCalendar("thisCalnear");
+//createCalendar("thisCalnear");
 
 //deleteCalendar("su6m46d27h2u44ivp4sihj3c80@group.calendar.google.com");
 
 //listevents("primary");
 
 //listevents("primary");
-//createCalendar(CalendarCreate); //need to test getting id
-//createEventInCalendar(event)
+//createCalendar(CalendarCreate); //need to googleAuth getting id
+createEventInCalendar(CalendarID, event)
+
 
 var CalendarCreate = {
   "summary": "asdffdsa"
@@ -48,11 +49,11 @@ var event = {
   'summary': 'Google I/O 2015',
   'description': 'A chance to hear more about Google\'s developer products.',
   'start': {
-    'dateTime': '2015-05-28T09:00:00-07:00',
+    'dateTime': '2018-02-28T09:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'end': {
-    'dateTime': '2015-05-28T17:00:00-07:00',
+    'dateTime': '2018-02-29T17:00:00-07:00',
     'timeZone': 'America/Los_Angeles',
   },
   'recurrence': [

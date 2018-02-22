@@ -40,10 +40,11 @@ function deleteCalendar(auth, idOfCalendar) {
   })
 }
 
-function postCreateCalendar(auth) {
+function postCreateCalendar(auth, NameOfCalendar) {
+  console.log("awee");
 
   axios.post("https://www.googleapis.com/calendar/v3/calendars", {
-    summary: "hello"
+    summary: NameOfCalendar
   }, {
     headers: {
       Authorization: "Bearer " + auth.credentials.access_token,
